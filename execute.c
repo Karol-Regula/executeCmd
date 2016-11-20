@@ -31,5 +31,3 @@ int main(){
 	execvp(input[0], input); //executing command
 	return 0;
 }
-
-//Rickx777
