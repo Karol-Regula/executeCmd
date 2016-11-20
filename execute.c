@@ -6,31 +6,30 @@
 int main(){
 	//Obtaining input
 	char * input[30];
-	char cmd[20];
+	char cmd[50];
+	char cmdNew[50];
 	printf("Enter a command: \n");
 	fgets(cmd, sizeof(cmd) , stdin);
-	printf("%s\n", cmd);
+	strncpy(cmdNew, cmd, strlen(cmd) - 1); //fixing fgets input
+	//printf("%s\n", cmd);
 
 	//parsing input
-	char * s = cmd;
-	char * p = cmd;
+	char * s = cmdNew;
+	char * p = cmdNew;
 	int x = 0;
 	while (s){
-		p = strsep(&s, " ");
-		input[x] = p;
+		input[x] = strsep(&s, " "); //parsing / separating command
 		x++;
-		printf("%d\n", x);
-		printf("%s\n", p);
+		//printf("%d\n", x);
+		//printf("%s\n", p);
 	}
-	input[x] = NULL;
+	input[x] = NULL; //adding terminiating NULL to array
 
 	//executing program
-	printf("works\n");
-	//input[0] = "ls";
-	//input[1] = NULL;
-	execvp(input[0], input);
+	//printf("works\n");
+	printf("\n");
+	execvp(input[0], input); //executing command
 	return 0;
 }
 
-
-Rickx777
+//Rickx777
